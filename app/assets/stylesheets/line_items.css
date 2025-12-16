@@ -1,0 +1,23 @@
+@keyframes line-item-highlight-add {
+  0% {
+    background: #8f8;
+  }
+  100% {
+    background: none;
+  }
+}
+.line-item-highlight-add {
+  animation: line-item-highlight-add 1s;
+}
+
+@keyframes line-item-highlight-del {
+  0% {
+    background: #f88;
+  }
+  100% {
+    background: none;
+  }
+}
+.line-item-highlight-del {
+  animation: line-item-highlight-del 1s;
+}
