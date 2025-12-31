@@ -7,6 +7,9 @@
 
 # For a containerized dev environment, see Dev Containers: https://guides.rubyonrails.org/getting_started_with_devcontainer.html
 
+
+# base image:
+
 # Make sure RUBY_VERSION matches the Ruby version in .ruby-version
 ARG RUBY_VERSION=3.4.5
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
@@ -24,6 +27,9 @@ ENV RAILS_ENV="production" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development"
+
+
+# build image:
 
 # Throw-away build stage to reduce size of final image
 FROM base AS build
@@ -50,6 +56,8 @@ RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 
 
+
+# deploy image:
 
 # Final stage for app image
 FROM base

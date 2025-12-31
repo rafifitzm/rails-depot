@@ -8,6 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+User.create! name: 'dave',
+  email_address: "dave@example.com",
+  password: Rails.application.credentials.dave_password
+
 Product.delete_all
 product = Product.create(title: 'Programming Ruby 3.3 (5th Edition)',
   description:
